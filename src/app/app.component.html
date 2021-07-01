@@ -1,0 +1,38 @@
+<div class="container">
+  <form [formGroup]="sendVaultForm" (ngSubmit)="onSubmit()">
+    <div class="form-check">
+      <input class="form-check-input" (change)="toggleShow($event)" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+       Check and uncheck to see the result
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Name</label>
+      <input type="text" formControlName="name" class="form-control">
+      <app-formerror [formcontrol]="isFormSubmit && sendVaultForm.get('name')" ></app-formerror>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Country</label>
+      <select class="form-control"  formControlName="country">
+        <option value="select">Select country</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Germany">Germany</option>
+        <option value="Austria">Austria</option>
+      </select>
+      <app-formerror [formcontrol]="isFormSubmit && sendVaultForm.get('country')" ></app-formerror>
+    </div>
+  
+    <div class="form-group">
+      <label for="formControlRange"> Date input</label>
+      <input type="date" class="form-control-range" formControlName="date">
+      <app-formerror [formcontrol]="isFormSubmit && sendVaultForm.get('date')" ></app-formerror>
+    </div>
+    <div class="form-group">
+      <label for="formControlRange"> Time input</label>
+      <input type="time" class="form-control-range" formControlName="time">
+      <app-formerror [formcontrol]="isFormSubmit && sendVaultForm.get('time')" ></app-formerror>
+    </div>
+    <button  [disabled]="!iScheckBoxDisabled"  type="submit" class="btn btn-primary">Save</button>
+</form>  
+</div>
